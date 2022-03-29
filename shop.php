@@ -30,15 +30,15 @@ if ($sig != md5($str.$secret_key)) {
       if ($item == 'item1') {
         $response['response'] = array(
           'item_id' => 25,
-          'title' => '300 золотых монет',
-          'photo_url' => 'http://somesite/images/coin.jpg',
+          'title' => '150 золотых монет',
+          'photo_url' => 'https://optimistpro.github.io/fruit_combo_pc/coins.png',
           'price' => 5
         );
       } elseif ($item == 'item2') {
         $response['response'] = array(
           'item_id' => 27,
           'title' => '500 золотых монет',
-          'photo_url' => 'http://somesite/images/coin.jpg',
+          'photo_url' => 'https://optimistpro.github.io/fruit_combo_pc/coins.png',
           'price' => 10
         );
       } else {
@@ -56,15 +56,15 @@ if ($sig != md5($str.$secret_key)) {
       if ($item == 'item1') {
         $response['response'] = array(
           'item_id' => 125,
-          'title' => '300 золотых монет (тестовый режим)',
-          'photo_url' => 'http://somesite/images/coin.jpg',
+          'title' => '150 золотых монет (тестовый режим)',
+          'photo_url' => 'https://optimistpro.github.io/fruit_combo_pc/coins.png',
           'price' => 5
         );
       } elseif ($item == 'item2') {
         $response['response'] = array(
           'item_id' => 127,
-          'title' => '500 золотых монет (тестовый режим)',
-          'photo_url' => 'http://somesite/images/coin.jpg',
+          'title' => '300 золотых монет (тестовый режим)',
+          'photo_url' => 'https://optimistpro.github.io/fruit_combo_pc/coins.png',
           'price' => 10
         );
       } else {

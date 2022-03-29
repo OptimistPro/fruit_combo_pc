@@ -125,36 +125,23 @@ html { overflow-x: hidden; overflow-y: hidden;}
 var mobile_stat=false;
 	var reklama_video=-1;
 
-function VideoClose() {
+function VideoClose(status) {
     reklama_video=2
 }
-function VideoErrol() {
+function VideoErrol(error) {
    reklama_video=1
 }
 
+function order() {
+    vkBridge.send("VKWebAppShowOrderBox", { 
+  type: "item",
+  item: "item1"
+})
+.then(data => VideoClose(data.status))  
+.catch(error => VideoErrol(error));
+  }
 
-
-
-
-
-function ShowAd() {
-	     vkBridge.send("VKWebAppCheckNativeAds", {"ad_format": "interstitial"});
-
-vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-.then(data => console.log(data.result))
-.catch(error => console.log(error));
-	   }
-	
-function ShowAdVideo() {
-	vkBridge.send("VKWebAppCheckNativeAds", {"ad_format": "reward"});
-
-    vkBridge.send("VKWebAppShowNativeAds", {ad_format:"reward"})
-    .then(data => VideoClose())
-    .catch(error => VideoErrol());
-	}
-	
-	
-	
+  
 	
 function	ShowPodel(nomber){
 vkBridge.send("VKWebAppShowWallPostBox", {"message": "Я прошёл уровень "+nomber+"! Присоединяйся ко мне в игре Fruit Combo!"});
