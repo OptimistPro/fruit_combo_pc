@@ -6,103 +6,93 @@
 	<title>fruit combo</title>
 	<style type='text/css'>
 
-	body {
-		touch-action: none;
-		margin: 0;
-		border: 0 none;
-		padding: 0;
-		text-align: center;
-		background-color: #e6d15c;
-	}
-
-	#canvas {
-		display: block;
-		margin: 0;
-		color: white;
-	}
-
-	#canvas:focus {
-		outline: none;
-	}
-
-	.godot {
-		font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-		color: #e0e0e0;
-		background-color: #3b3943;
-		background-image: linear-gradient(to bottom, #403e48, #35333c);
-		border: 1px solid #45434e;
-		box-shadow: 0 0 1px 1px #2f2d35;
-	}
-
-
-	/* Status display
-	 * ============== */
-
-	 #status {
-		position: absolute;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		/* don't consume click events - make children visible explicitly */
-		visibility: hidden;
-	}
-
-	#status-progress {
-		width: 366px;
-		height: 16px;
-		background-color: #481d95;
-		border: 1px solid #30165f;
-		padding: 1px;
-		box-shadow: 0 0 2px 1px #1B1C22;
-		border-radius: 8px;
-		visibility: visible;
-	}
-
-	@media only screen and (orientation:portrait) {
-		#status-progress {
-			width: 61.8%;
+		body {
+			touch-action: none;
+			margin: 0;
+			border: 0 none;
+			padding: 0;
+			text-align: center;
+			background-color: black;
 		}
-	}
 
-	#status-progress-inner {
-		height: 100%;
-		width: 0;
-		box-sizing: border-box;
-		transition: width 0.5s linear;
-		background-color: #871aff;
-		border: 1px solid #7526cc;
-		box-shadow: 0 0 1px 1px #27282E;
-		border-radius: 8px;
-	}
+		#canvas {
+			display: block;
+			margin: 0;
+			color: white;
+		}
 
-	#text_progress {
-		height: 100%;
-		width: 20;
-		font-size: 14pt;
-		text-align:  center;
-		margin-top: 50px;
-		color: #ffffff;
-		font-weight: bold;
-	}
+		#canvas:focus {
+			outline: none;
+		}
 
-	#status-indeterminate {
-		visibility: visible;
-		position: relative;
-	}
+		.godot {
+			font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+			color: #e0e0e0;
+			background-color: #3b3943;
+			background-image: linear-gradient(to bottom, #403e48, #35333c);
+			border: 1px solid #45434e;
+			box-shadow: 0 0 1px 1px #2f2d35;
+		}
 
-	#status-indeterminate > div {
-		width: 4.5px;
-		height: 0;
-		border-style: solid;
-		border-width: 9px 3px 0 3px;
-		border-color: #5b209c transparent transparent transparent;
-		transform-origin: center 21px;
-		position: absolute;
-	}
+
+		/* Status display
+		 * ============== */
+
+		#status {
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			/* don't consume click events - make children visible explicitly */
+			visibility: hidden;
+		}
+
+		#status-progress {
+			width: 366px;
+			height: 7px;
+			background-color: #38363A;
+			border: 1px solid #444246;
+			padding: 1px;
+			box-shadow: 0 0 2px 1px #1B1C22;
+			border-radius: 2px;
+			visibility: visible;
+		}
+
+		@media only screen and (orientation:portrait) {
+			#status-progress {
+				width: 61.8%;
+			}
+		}
+
+		#status-progress-inner {
+			height: 100%;
+			width: 0;
+			box-sizing: border-box;
+			transition: width 0.5s linear;
+			background-color: #202020;
+			border: 1px solid #222223;
+			box-shadow: 0 0 1px 1px #27282E;
+			border-radius: 3px;
+		}
+
+		#status-indeterminate {
+			visibility: visible;
+			position: relative;
+		}
+
+		#status-indeterminate > div {
+			width: 4.5px;
+			height: 0;
+			border-style: solid;
+			border-width: 9px 3px 0 3px;
+			border-color: #2b2b2b transparent transparent transparent;
+			transform-origin: center 21px;
+			position: absolute;
+		}
 
 		#status-indeterminate > div:nth-child(1) { transform: rotate( 22.5deg); }
 		#status-indeterminate > div:nth-child(2) { transform: rotate( 67.5deg); }
@@ -143,20 +133,20 @@ function VideoErrol(error) {
 }
 
 function order() {
-    vkBridge.send("VKWebAppShowOrderBox", {
+    vkBridge.send("VKWebAppShowOrderBox", { 
   type: "item",
   item: "item1"
 })
-.then(data => VideoClose(data.status))
+.then(data => VideoClose(data.status))  
 .catch(error => VideoErrol(error));
   }
 
-
-
+  
+	
 function	ShowPodel(nomber){
 vkBridge.send("VKWebAppShowWallPostBox", {"message": "Я прошёл уровень "+nomber+"! Присоединяйся ко мне в игре Fruit Combo!"});
 }
-
+	
 </script>
 
 <script type="text/javascript">
@@ -174,7 +164,7 @@ vkBridge.send("VKWebAppShowWallPostBox", {"message": "Я прошёл урове
 	    </script>
 		<script type='text/javascript' src='howler.core.js'></script>
 		<script type='text/javascript'>
-
+		
 		var fon = new Howl({src: ['sounds/fon.mp3'], loop: true});
    		var button = new Howl({src: ['sounds/button.wav'],loop: false});
 		var no_combo = new Howl({src: ['sounds/no_combo.mp3'], loop: false});
@@ -188,9 +178,9 @@ vkBridge.send("VKWebAppShowWallPostBox", {"message": "Я прошёл урове
 		var electric = new Howl({src: ['sounds/electric.wav'], loop: false});
    		var bom = new Howl({src: ['sounds/bom.wav'],loop: false});
 		var dead = new Howl({src: ['sounds/dead.wav'], loop: false});
-
+		
 		</script>
-
+	
 	<!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -229,7 +219,7 @@ vkBridge.send("VKWebAppShowWallPostBox", {"message": "Я прошёл урове
 	<script type='text/javascript' src='index.js'></script>
 	<script type='text/javascript'>//<![CDATA[
 
-		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1675360,"index.wasm":11791867},"focusCanvas":true,"gdnativeLibs":[]};
+		const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":1675344,"index.wasm":11791867},"focusCanvas":true,"gdnativeLibs":[]};
 		var engine = new Engine(GODOT_CONFIG);
 
 		(function() {
@@ -335,3 +325,4 @@ vkBridge.send("VKWebAppShowWallPostBox", {"message": "Я прошёл урове
 	//]]></script>
 </body>
 </html>
+
